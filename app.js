@@ -1,7 +1,9 @@
-const btnMenu = document.querySelector('.btn-rond-menu');
-const nav = document.querySelector('.nav-gauche');
-const allItemNav = document.querySelectorAll('.nav-menu-item');
-const ligne = document.querySelector('.cont-ligne');
+const btnMenu = document.querySelector('.btn-menu'),
+    ligne = document.querySelector('.cont-ligne'),
+    menu = document.querySelector('header'),
+    home = document.querySelector('.home'),
+    tabs = document.querySelector('.tabs'),
+    allItemNav = document.querySelectorAll('.tabs li');
 
 // Animation accueil
 const txtAnim = document.querySelector('.txt-animation');
@@ -29,28 +31,34 @@ typewriter
     .typeString('<span style="color: #ff6910;"><strong> JavaScript</strong></span>')
     .start();
 
-/* 
+
+
 // Lors du clic sur le bouton de menu
 btnMenu.addEventListener('click', () => {
+    btnMenu.classList.toggle('ouvert');
     ligne.classList.toggle('active');
-    nav.classList.toggle('menu-visible');
+    menu.classList.toggle('menu-visible');
+    tabs.classList.toggle('active');
+});
+// Lors du clic sur un élément de menu
+home.addEventListener('click', () => {
+    menu.classList.toggle('menu-visible');
+    ligne.classList.toggle('active');
+    tabs.classList.toggle('active');
+    btnMenu.classList.toggle('ouvert');
+});
+allItemNav.forEach(item => {
+    item.addEventListener('click', () => {
+        menu.classList.toggle('menu-visible');
+        ligne.classList.toggle('active');
+        tabs.classList.toggle('active');
+        btnMenu.classList.toggle('ouvert');
+    })
 });
 
-// Même action si on clique sur un lien du menu :
-// Utilisation de window.matchMedia pour utiliser les @media queries CSS
-if (window.matchMedia('(max-width: 1300px)')) {
-
-    allItemNav.forEach(item => {
-        item.addEventListener('click', () => {
-            nav.classList.toggle('menu-visible');
-            ligne.classList.toggle('active');
-        })
-    });
-
-}
 
 
-
+/*
 
 // Animation contact
 const input_fields = document.querySelectorAll('input');

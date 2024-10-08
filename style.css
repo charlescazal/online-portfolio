@@ -4,7 +4,6 @@
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
@@ -12,7 +11,7 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f1f1f1;
+    background: var(--blancCasse);
 }
 
 section {
@@ -39,6 +38,15 @@ section {
     align-items: center;
 }
 
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.blur {
+    backdrop-filter: blur(5px)!important;
+}
 /* ------------------ Accueil ------------------ */
 .accueil {
     height: 100vh;
@@ -183,36 +191,374 @@ svg {
 .media2:hover i {
     color: var(--coulBlanc);
 }
-
 /* Bouton de bas de page */
-.btn-rond-container {
+.scroll-container {
     width: 100%;
-    height: 10vh;
-    max-height: 15vw;
-    position: absolute;
+    height: 40px;
+    max-height: 10vh;
+    position: relative;
+    bottom: 10px;
+    margin-top: 50px;
+}
+.scroll {
+    border: 2px solid var(--coulGris);
+    border-radius: 30px;
     bottom: 0;
-}
-.btn-rond {
-    width: 56px;
-    height: 56px;
+    font-size: 20px;
+    height: 50px;
+    left: 50%;
+    margin: 0 0 0 -22px io !important;
     position: absolute;
-    bottom: 2vh;
-    left: calc(50% - 28px);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 0 0 var(--coulGris);
-    background: var(--coulGris);
-    animation: pulse 1.3s infinite;
+    text-align: center;
+    width: 25px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
+    transform: translateY(0);
+    animation: float 6s ease-in-out infinite;
+    color: var(--coulGris);
 }
-@keyframes pulse {
-    to {
-        box-shadow: 0 0 0 8px rgba(255,255,255,0.05);
+@keyframes float {
+    0% {
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
+        transform: translateY(0px);
+    }
+    50% {
+        box-shadow: 0 25px 15px 0 rgba(0,0,0,0.2);
+        transform: translateY(-20px);
+    }
+    100% {
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
+        transform: translateY(0px);
     }
 }
-.btn-rond i {
+/* ---------------- Fin Accueil ---------------- */
+
+/* ------------------- Menu -------------------- */
+/* Création du bouton hamburger en CSS */
+.btn-menu {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: fixed;
+    top: 12px;
+    right: 10px;
+    z-index: 10;
+    background: var(--coulGris);
+}
+.btn-menu:hover{
+    border: 2px solid var(--rougeMain);
+    background: var(--rougeMain);
+}
+.btn-menu.ouvert {
+    background-color: transparent;
+    border: none;
+}
+.cont-ligne {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.ligne-unique {
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background: var(--blancCasse);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.ligne-unique::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    background: var(--blancCasse);
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+}
+.ligne-unique::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    background: var(--blancCasse);
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+}
+.cont-ligne.active .ligne-unique::after {
+    top: 0;
+    transform: rotate(45deg);
+    transition: top 300ms ease, transform 300ms 300ms ease;
+} 
+.cont-ligne.active .ligne-unique {
+    background: transparent;
+}
+.cont-ligne.active .ligne-unique::before {
+    bottom: 0;
+    transform: rotate(-45deg);
+    transition: bottom 300ms ease, transform 300ms 300ms ease;
+}
+.menu-visible {
+    top: 33.3438px;
+}
+/* Menu horizontal */
+header {
+    position: absolute;
+    background-color: var(--blancCasse);
+    border-radius: 6px;
+    box-shadow: 0 2px 92px 0 rgba(0 0 0 / 27%);
+    z-index: 5;
+    margin: 10px 10px;
+    width: 95%;
+    top: -100px;
+}
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+}
+header nav .home {
+    background-color: var(--rougeMain);
     color: var(--blancCasse);
+    font-size: 1.2rem;
+    justify-content: center;
+    align-self: stretch;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px 0 0 6px;
+    border-right: 1px solid var(--blancCasse)
+}
+header nav .tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bleuClair);
+    border-radius: 8px;
+    margin-top: 50px;
+    box-shadow: 0 2px 92px 0 rgba(0 0 0 / 27%);
+    opacity: 0;
+    visibility: hidden;
+}
+header nav .tabs.active {
+    top: 10px;
+    visibility: visible;
+    opacity: 1;
+    backdrop-filter: blur(5px) !important;
+}
+header nav .tabs li {
+    text-align: center;
+    border-bottom: .1rem solid var(--bleuFonce);
+    cursor: pointer;
+}
+header nav .tabs li:last-child {
+    border-bottom: none;
+}
+header nav .tabs li a {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--blancCasse);
+    text-transform: uppercase;
+    padding: 0 1rem;
+    line-height: 45px;
+    transition: all .3s ease;
+}
+header nav .tabs li a.active,
+header nav .tabs li:hover a {
+    color: var(--rougeMain);
+}
+header nav .hire-me {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 1px 6px;
+    line-height: 35px;
+    border: none;
+    /* background-color: var(--rougeMain); */
+    transition: all .3s ease;
+    cursor: pointer;
+}
+header nav .hire-me .btn {
+    color: var(--coulNoir);
+}
+header nav .hire-me .btn i {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: var(--rougeMain);
+    color: var(--blancCasse);
+    font-size: 1rem;
+    line-height: 27px;
+    margin-left: 5px;
+}
+header nav .toggle-btn {
+    font-size: 2rem;
+    color: var(--blancCasse);
+    width: 50px;
+    height: 50px;
+    border-left: .1rem solid var(--borderColor);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-left: 1px solid white;
+    background-color: var(--rougeMain);
+    border-radius: 0 6px 6px 0;
+}
+header nav .toggle-btn i {
+    visibility: hidden;
+
+}
+/* ----------------- Fin Menu ------------------ */
+
+/* --------------- Présentation ---------------- */
+.presentation {
+    /* height: 100vh; */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px dashed var(--coulGris);
+    border-bottom: 1px dashed var(--coulGris);
+    color: #e7e7e7;
+}
+.fond-forme {
+    background: var(--bleuMain);
+    background-image: linear-gradient(to right, var(--bleuFonce), var(--bleuClair));
+    width: 4800px;
+    height: 1000px;
+    position: absolute;
+    transform: rotate(-45deg) translateX(100px) translateY(-15px);
+    z-index: -1;
+}
+.titre-pres {
+    font-size: 40px;
+    text-align: center;
+    margin: 50px 0 70px 0;
+}
+.container-presentation {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 130px 0;
+    flex-shrink: 0;
+    /* padding-left: 300px; */
+}
+.pres-gauche {
+    width: 600px;
+    flex-shrink: 0;
+    margin-bottom: 50px;
+    padding-left: 120px;
+    padding-top: 20px;
+}
+.pres-gauche h3 {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+.pres-gauche hr {
+    width: 60px;
+    margin: 0 auto 20px auto;
+}
+.pres-gauche p {
+    text-align: justify;
+}
+.pres-droite {
+    width: 600px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.liste-presentation {
+    list-style-type: none;
+    padding: 10px 0 50px 110px;
+}
+.chiffre-style {
+    font-family: 'Abril Fatface', sans-serif;
+    font-size: 40px;
+}
+.txt-liste {
+    font-size: 27px;
+    display: inline;
 }
 
+@media screen and (max-width: 1300px)  {
+    .container-presentation {
+        padding-left: 0px;
+    }
+    .titre-pres {
+        padding-left: 0px;
+    }
+}
+@media screen and (max-width: 1100px)  {
+    .fond-forme {
+        width: 100%;
+        height: 100%;
+        transform: rotate(0) translateX(0) translateY(0);
+    }
+    .titre-pres {
+        margin: 0 0 20px 0;
+        padding-top: 50px;
+    }
+    .container-presentation {
+        flex-direction: column;
+    }
+    .pres-gauche {
+        width: 80%;
+        flex-shrink: 1;
+        margin-bottom: 10px;
+        padding: 20px 0;
+    }
+    .pres-gauche h3 {
+        font-size: 20px;
+        letter-spacing: 0px;
+    }
+    .pres-gauche p {
+        font-size: 16px;
+    }
+    .pres-droite {
+        width: 80%;
+        flex-shrink: 1;
+    }
+    .liste-presentation {
+        padding: 0 0;
+    }
+}
+@media screen and (max-width: 700px)  {
+    .container-presentation {
+        margin-top: 10px;
+        margin-bottom: 70px;
+    }
+    .titre-pres {
+        font-size: 24px;
+        margin: 0 10px;
+    }
+    .chiffre-style {
+        font-size: 30px;
+    }
+    .txt-liste {
+        font-size: 17px;
+    }
+}
+/* ------------- Fin Présentation -------------- */
+
+/* ------------------- Menu -------------------- */
+/* ----------------- Fin Menu ------------------ */
+
+/* ------------------- Menu -------------------- */
+/* ----------------- Fin Menu ------------------ */
 
 
 
