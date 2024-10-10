@@ -28,15 +28,15 @@
                 <i class="fa-solid fa-home"></i>
             </a>
             <ul class="tabs" id="tabs">
-                <li><a href="#">présentation</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">compétences</a></li>
-                <li><a href="#">expériences</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a href="#pres">présentation</a></li>
+                <li><a href="#port">portfolio</a></li>
+                <li><a href="#range">compétences</a></li>
+                <li><a href="#exp">expériences</a></li>
+                <li><a href="#contact">contact</a></li>
             </ul>
             <div class="hire-me">
-                <a class="btn" href="ressources/cv_charlescazal.pdf">
-                    Télécharger mon CV
+                <a class="btn" id="cvdownload" href="ressources/cv_charlescazal.pdf" target="_blank">
+                    Mon CV
                     <i class="fas fa-download"></i>
                 </a>
             </div>
@@ -106,14 +106,13 @@
     <!-- Section présentation -->
     <section class="presentation" id="pres">
         <h2 class="titre-pres">Qui suis-je ?</h2>
-        <div class="container-presentation">
-            <div class="fond-forme"></div>
+        <div class="container-presentation flexcenter">
             <div class="pres-gauche">
-                <h3>Caméléon du code, solutionneur agile et créatif.</h3>
+                <h3 class="textgradient">Caméléon du code, solutionneur agile et créatif.</h3>
                 <hr>
-                <p>Développeur web tout terrain, j'ai fait mes armes dans des univers aussi variés que la restauration, les urgences hospitalières et le graphisme. Autant dire que <strong>m'adapter</strong> à n'importe quelle situation, c'est un peu ma seconde nature. Comme un caméléon qui change de couleur selon l'ambiance, je sais absorber rapidement les attentes, les besoins et les contraintes de mon environnement, et y répondre avec précision.</p>
+                <p>Développeur web tout terrain, j'ai fait mes armes dans des univers aussi variés que la restauration, les urgences hospitalières et le graphisme. Autant dire que <strong>m'adapter</strong> à n'importe quelle situation, c'est un peu ma seconde nature.</p>
                 <br>
-                <P>J'aime explorer des terrains inconnus, apprendre de nouvelles techniques, et surtout, apporter des solutions concrètes à mes clients. Pour moi, un projet web, c'est comme un bon plat : il doit être savoureux, bien dosé et servi à temps ! Toujours partant pour de nouvelles aventures digitales, je mise sur une communication détendue et humaine, tout en garantissant un travail sérieux et soigné.</P>
+                <P>Comme un <span class="textgradient">caméléon</span>  qui change de couleur selon l'ambiance, je sais absorber rapidement les attentes, les besoins et les contraintes de mon environnement, et y répondre avec précision.</P><hr>
             </div>
             <div class="pres-droite">
                 <ul class="liste-presentation">
@@ -145,6 +144,13 @@
     <!-- Section portfolio -->
     <section class="portfolio" id="port">
         <h2 class="titre-port">Mon Portfolio</h2>
+        <ul class="filter">
+            <li class="active" data-profile="all">tout</li>
+            <li data-profile="webdesign">études</li>
+            <li data-profile="motion">perso</li>
+            <li data-profile="illustration">illustration</li>
+            <li data-profile="graphisme">graphisme</li>
+        </ul>
 
         <!-- Card servant de template -->
         <div class="cont-portfolio">
@@ -343,17 +349,17 @@
     <section class="section-contact" id="contact">
         <h2><strong>Rentrons</strong> en contact</h2>
         <div class="container-form">
-            <form class="form-bloc">
+            <form class="form-bloc" action="#">
                 <div class="form-groupe">
-                    <label for="prenom">Nom</label>
-                    <input type="text" id="prenom" required maxlength="16">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="user_name" required maxlength="16" autocomplete="off">
                 </div>
                 <div class="form-groupe">
-                    <label for="nom">Email</label>
-                    <input type="text" id="nom" required maxlength="16">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="user_email" required>
                 </div>
                 <div class="form-groupe">
-                    <textarea id="txt" placeholder="Votre message" required></textarea>
+                    <textarea id="txt" placeholder="Votre message" name="message" required></textarea>
                 </div>
                 <div class="form-groupe">
                     <input type="submit" value="ENVOYER" class="button-sub">
@@ -364,6 +370,14 @@
 
     <footer>Charles Cazal - 2024 - Tous droits réservés &copy;</footer>
 
+    <div class="preloader" id="preloader">
+        <div class="spinner">
+            <div class="img-container">
+                <img src="img/portrait-spinner.png" alt="image chargement">
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/6caedc2236.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
@@ -371,6 +385,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js"></script>
 </body>
 

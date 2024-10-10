@@ -2,13 +2,57 @@ const btnMenu = document.querySelector('.btn-menu'),
     ligne = document.querySelector('.cont-ligne'),
     menu = document.querySelector('header'),
     home = document.querySelector('.home'),
+    cvdownload = document.querySelector('#cvdownload'),
     tabs = document.querySelector('.tabs'),
-    allItemNav = document.querySelectorAll('.tabs li');
+    allItemNav = document.querySelectorAll('.tabs li'),
+    preloader = document.querySelector('#preloader'),
+    form = document.querySelector('form'),
+    input_fields = document.querySelectorAll('input');
 
-// Animation accueil
+
+// SECTION MENU BURGER
+// Clic sur le bouton de menu
+btnMenu.addEventListener('click', () => {
+    btnMenu.classList.toggle('ouvert');
+    ligne.classList.toggle('active');
+    menu.classList.toggle('menu-visible');
+    tabs.classList.toggle('active');
+});
+// Clic sur un élément de menu
+home.addEventListener('click', () => {
+    menu.classList.toggle('menu-visible');
+    ligne.classList.toggle('active');
+    tabs.classList.toggle('active');
+    btnMenu.classList.toggle('ouvert');
+});
+cvdownload.addEventListener('click', () => {
+    menu.classList.toggle('menu-visible');
+    ligne.classList.toggle('active');
+    tabs.classList.toggle('active');
+    btnMenu.classList.toggle('ouvert');
+});
+allItemNav.forEach(item => {
+    item.addEventListener('click', () => {
+        menu.classList.toggle('menu-visible');
+        ligne.classList.toggle('active');
+        tabs.classList.toggle('active');
+        btnMenu.classList.toggle('ouvert');
+    })
+});
+
+// Loader au chargement du site
+window.addEventListener('load', () => {
+    const fadeOutEffect = setInterval(() => {
+        preloader.classList.add('hide');
+        clearInterval(fadeOutEffect);
+    }, 1000);
+});
+
+
+// Animation typewriter accueil
 const txtAnim = document.querySelector('.txt-animation');
 let typewriter = new Typewriter(txtAnim, {
-    loop: false,
+    loop: true,
     deleteSpeed: 20
 })
 
@@ -31,38 +75,8 @@ typewriter
     .typeString('<span style="color: #ff6910;"><strong> JavaScript</strong></span>')
     .start();
 
-
-
-// Lors du clic sur le bouton de menu
-btnMenu.addEventListener('click', () => {
-    btnMenu.classList.toggle('ouvert');
-    ligne.classList.toggle('active');
-    menu.classList.toggle('menu-visible');
-    tabs.classList.toggle('active');
-});
-// Lors du clic sur un élément de menu
-home.addEventListener('click', () => {
-    menu.classList.toggle('menu-visible');
-    ligne.classList.toggle('active');
-    tabs.classList.toggle('active');
-    btnMenu.classList.toggle('ouvert');
-});
-allItemNav.forEach(item => {
-    item.addEventListener('click', () => {
-        menu.classList.toggle('menu-visible');
-        ligne.classList.toggle('active');
-        tabs.classList.toggle('active');
-        btnMenu.classList.toggle('ouvert');
-    })
-});
-
-
-
-/*
-
+// SECTION FORMULAIRE DE CONTACT
 // Animation contact
-const input_fields = document.querySelectorAll('input');
-
 for (let i = 0; i < input_fields.length; i++) {
     let field = input_fields[i];
 
@@ -74,6 +88,28 @@ for (let i = 0; i < input_fields.length; i++) {
         }
     })
 }
+// Envoi mail par formulaire de contact
+emailjs.init({ publicKey: "bacOkN5u4y3w6k5HT" });
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    emailjs.sendForm('contact_service', 'contact_form', 'form')
+        .then(() => {
+            console.log('Success');
+        }, (error) => {
+            console.log('Fail: ', error);
+        })
+});
+
+// SECTION GESTION DU SCROLL
+
+
+
+
+
+
+/*
+
+
 
 // Anim GSAP + Scrollmagic accueil
 const navbar = document.querySelector('.nav-gauche');
