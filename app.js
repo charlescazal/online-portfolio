@@ -5,6 +5,8 @@ const btnMenu = document.querySelector('.btn-menu'),
     cvdownload = document.querySelector('#cvdownload'),
     tabs = document.querySelector('.tabs'),
     allItemNav = document.querySelectorAll('.tabs li'),
+    portFilter = document.querySelectorAll('.filter li'),
+    portBox = document.querySelectorAll('.cont-portfolio .box'),
     preloader = document.querySelector('#preloader'),
     form = document.querySelector('form'),
     input_fields = document.querySelectorAll('input');
@@ -100,10 +102,40 @@ form.addEventListener("submit", (e) => {
         })
 });
 
-// SECTION GESTION DU SCROLL
+// SECTION TRI PORTFOLIO
+portFilter.forEach((li) => {
+    li.addEventListener('click', (e) => {
+        portFilter.forEach((li) => {
+            li.classList.remove('active');
+        });
+        li.classList.add('active');
+        portBox.forEach((box) => {
+            box.classList.remove('active');
+        });
+        if (e.currentTarget.dataset.profile === 'all') {
+            portBox.forEach((box) => {
+                box.classList.add('active');
+            });
+        } else {
+            // Selectionne toutes les box qui ont le même dataset et ajoute .active
+            document.querySelectorAll('.' + e.currentTarget.dataset.profile).forEach((el) => {
+                el.classList.add('active');
+            });
+        }
+    });
+});
 
-
-
+// SKILLBARS
+let progress = document.querySelectorAll('.skill-bar span'),
+    spans = document.querySelectorAll('.skill-title span');
+progress.forEach((prog) => {
+    prog.style.width = prog.dataset.width;
+});
+spans.forEach((span) => {
+    span.style.left = span.dataset.num;
+    span.style.opacity = '1';
+    span.style.visibility = 'visible';
+})
 
 
 
