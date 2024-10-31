@@ -17,8 +17,16 @@ const btnMenu = document.querySelector('.btn-menu'),
 btnMenu.addEventListener('click', () => {
     btnMenu.classList.toggle('ouvert');
     ligne.classList.toggle('active');
-    menu.classList.toggle('menu-visible');
-    tabs.classList.toggle('active');
+    if (btnMenu.classList.contains('ouvert')) {
+        menu.classList.toggle('menu-visible');
+        const appearMenu = setInterval(() => {
+            tabs.classList.toggle('active');
+            clearInterval(appearMenu);
+        }, 400);
+    } else {
+        tabs.classList.toggle('active');
+        menu.classList.toggle('menu-visible');
+    }
 });
 // Clic sur un élément de menu
 home.addEventListener('click', () => {
@@ -57,7 +65,6 @@ let typewriter = new Typewriter(txtAnim, {
     loop: true,
     deleteSpeed: 20
 })
-
 typewriter
     .pauseFor(1000)
     .changeDelay(20)
@@ -137,6 +144,35 @@ spans.forEach((span) => {
     span.style.visibility = 'visible';
 })
 
+
+// TECHNOS SWIPER
+let swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    breakpoints: {
+        //When window width is >= 768px
+        768: {
+            slidesPerView: 2,
+        },
+        //When window width is >= 992px
+        992: {
+            slidesPerView: 3,
+        }
+    },
+    //autoplay the slider with a delay of 2.5s
+    autoplay: {
+        delay: 2500,
+        disableInteraction: false,
+    },
+    //show the pagination bullet and make it clickable
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    //loop the slider 
+    lazyLoading: true,
+    loop: true,
+});
 
 
 /*

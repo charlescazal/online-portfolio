@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,7 @@
                 <i class="fa-solid fa-home"></i>
             </a>
             <ul class="tabs" id="tabs">
+                <li><a href="#accueil">accueil</a></li>
                 <li><a href="#pres">présentation</a></li>
                 <li><a href="#port">portfolio</a></li>
                 <li><a href="#range">compétences</a></li>
@@ -217,12 +219,113 @@
         </div>
     </section>
 
-    <!-- Section parallax -->
-    <div class="section-parallax">
-        <p class="txt-par">752 tasses de café</p>
-        <p class="txt-par">86 projets</p>
-        <p class="txt-par">38 clients</p>
-    </div>
+    <!-- Section technos -->
+    <section class="technos">
+        <div class="technos-title">
+            <h2>Technos</h2>
+        </div>
+        <div class="technos-container swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/html5.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">HTML</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/css-3.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">CSS</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/js.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">JS</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/php.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">PHP</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/laravel.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">Laravel</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/logos/symfony-black.svg" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">Symfony</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/python.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">Python</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/node.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">NodeJS</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/react.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">React</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/sql.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">SQL</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/java.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">Java</span>
+                    </div>
+                </div>
+                <div class="techno swiper-slide">
+                    <div class="techno-img-container flexcenter">
+                        <img src="img/png/spring.png" alt="" class="techno-img">
+                    </div>
+                    <div class="techno-text-container flexcenter">
+                        <span class="techno-name">Java SpringBoot</span>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
 
     <!-- Section compétences -->
     <section class="skills flexcenter" id="comp">
@@ -288,55 +391,54 @@
 
     <!-- Section expériences -->
     <section class="travail-exp" id="exp">
-        <h2 class="titre-travail-exp">Mes expériences</h2>
+        <h2 class="titre-travail-exp">Expériences dev</h2>
 
         <div class="cont-exp-travail">
             <div class="barre-verticale">
-                <div class="boule-ico"><img src="ressources/google.svg" alt="icone google"></div>
-                <div class="boule-ico"><img src="ressources/instagram.svg" alt="icone instagram"></div>
-                <div class="boule-ico"><img src="ressources/amazon.svg" alt="icone amazon"></div>
-                <div class="boule-ico"><img src="ressources/apple.svg" alt="icone apple"></div>
-                <div class="boule-ico"><img src="ressources/plane.svg" alt="icone plane"></div>
+                <div class="boule-ico">
+                    <img src="img/logos/Logo_resalocal_vertical.svg" alt="icone resalocal" class="logo-resa">
+                </div>
+                <div class="boule-ico">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="boule-ico">
+                    <img src="img/logos/udemy.svg" alt="icone udemy" class="logo-udemy">
+                </div>
+                <div class="boule-ico">
+                    <img src="ressources/plane.svg" alt="icone plane" class="logo-fusee">
+                </div>
             </div>
-
             <div class="flex-cont-bloc-exp">
                 <div class="bloc bloc1">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Google, 2019</p>
-                        <p class="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-                            libero quos cumque, dicta nesciunt est tempore! Nemo dolorem ratione reprehenderit!</p>
+                        <p class="titre-section-bloc">ResaLocal, 2024</p>
+                        <p class="details-exp">Développeur stagiaire - Stage (8 semaines)</p><hr>
+                        <p class="txt-section">Stage de fin d'études, développement fullstack : travail sur API REST en PHP/Laravel, et sur front office en NuxtJS.</p>
                     </div>
                 </div>
                 <div class="bloc bloc2">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Instagram, 2017-18</p>
-                        <p class="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-                            libero quos cumque, dicta nesciunt est tempore! Nemo dolorem ratione reprehenderit!</p>
+                        <p class="titre-section-bloc">ENI Ecole, 2024</p>
+                        <p class="details-exp">Etudiant en reconverstion - Formation (9mois)</p><hr>
+                        <p class="txt-section">Formation entièrement en Campus en Ligne pour le titre professionnel de Développeur Web et Web Mobile, obtenu en 09/24.</p>
                     </div>
                 </div>
                 <div class="bloc bloc3">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Amazon, 2015-16</p>
-                        <p class="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-                            libero quos cumque, dicta nesciunt est tempore! Nemo dolorem ratione reprehenderit!</p>
-                    </div>
-                </div>
-                <div class="bloc bloc4">
-                    <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Apple, 2012-14</p>
-                        <p class="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-                            libero quos cumque, dicta nesciunt est tempore! Nemo dolorem ratione reprehenderit!</p>
+                        <p class="titre-section-bloc">Udemy, 2023</p>
+                        <p class="details-exp">Formations en ligne</p><hr>
+                        <p class="txt-section">Plusieurs formations en ligne pour préparer la reconversion professionnelle - Node.js, React, NPM, MongoDB...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section parallax 2 -->
-    <div class="section-parallax-2">
-        <p class="txt-par">752 tasses de café</p>
-        <p class="txt-par">86 projets</p>
-        <p class="txt-par">38 clients</p>
+    <!-- Section parallax -->
+    <div class="section-parallax flexcenter">
+        <p class="txt-par">1370 heures sur Isaac</p>
+        <p class="txt-par">25 années de guitare</p>
+        <p class="txt-par">646 jeux Steam</p>
     </div>
 
     <!-- Section contact -->
@@ -362,7 +464,7 @@
         </div>
     </section>
 
-    <footer>Charles Cazal - 2024 - Tous droits réservés &copy;</footer>
+    <footer>2024 - Tous droits réservés &copy;</footer>
 
     <div class="preloader" id="preloader">
         <div class="spinner">
@@ -374,10 +476,13 @@
 
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/6caedc2236.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> -->
+    
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js"></script>
