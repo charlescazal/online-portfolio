@@ -640,7 +640,7 @@ header nav .toggle-btn i {
     width: 60%;
 }
 .techno-text-container {
-    height: 20%
+    height: 20%;
 }
 .techno .techno-name {
     font-size: .9rem;
@@ -862,7 +862,7 @@ img.logo-fusee {
 .section-parallax {
     width: 100%;
     height: 250px;
-    background: url(ressources/instagramPicture.jpg) no-repeat center / cover fixed;
+    background: url(img/jpg/instagramPicture.jpg) no-repeat center / cover fixed;
     border-top: 1px dashed #333;
     border-bottom: 1px dashed #333;
     flex-direction: column;
@@ -880,12 +880,13 @@ img.logo-fusee {
     height: auto;
 }
 .section-contact h2 {
+    font-family: 'Bebas Neue', sans-serif;
     text-align: center;
-    color: #333;
-    font-size: 48px;
-    font-weight: 400;
-    margin-bottom: 50px;
-    padding: 70px 0 0 300px;
+    color: var(--coulNoir);
+    font-size: 3rem;
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+    padding: 10px 0 0 0;
 }
 .section-contact h2 strong {
     font-weight: 900;
@@ -893,20 +894,19 @@ img.logo-fusee {
 .container-form {
     margin: 0 auto;
     width: 70%;
-    padding-left: 300px;
 }
 .form-groupe {
     position: relative;
     display: flex;
-    margin-bottom: 45px;
+    margin-bottom: 2.8rem;
 }
 .form-groupe label {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    color: #aaa;
-    font-size: 20px;
+    color: var(--coulGrisClair);
+    font-size: 1.25rem;
     transition: 0.4s ease-out;
 }
 .form-groupe input {
@@ -916,34 +916,34 @@ img.logo-fusee {
     border: none;
     outline: none;
     background: none;
-    border-bottom: 3px solid #aaa;
+    border-bottom: 3px solid var(--coulGrisClair);
     color: #666;
-    font-size: 20px;
+    font-size: 1.25rem;
     transition: 0.4s ease-out;
 }
 textarea {
     width: 100%;
-    height: 200px;
+    height: 12.5rem;
     border: none;
-    border: 3px solid #aaa;
+    border: 3px solid var(--coulGrisClair);
     border-radius: 3px;
     padding: 5px;
     resize: none;
     outline: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     transition: 0.4s all ease-out;
-    background: #f1f1f1;
+    background: var(--blancCasse);
 }
 textarea::placeholder {
     font-size: 20px;
     opacity: 0.5;
 }
 textarea:focus {
-    border-color: #8d97d7;
+    border-color: var(--bleuMain);
 }
 .form-groupe:nth-child(4) {
-    margin-bottom: 25px;
-    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+    justify-content: center;
 }
 .form-groupe .button-sub {
     display: block;
@@ -953,27 +953,14 @@ textarea:focus {
     border-radius: 999px;
     background-image: linear-gradient(to right, transparent 50%, rgb(65,65,65) 50%, rgb(134,134,134));
     background-size: 200%;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 500;
     cursor: pointer;
 }
 .form-groupe .button-sub:hover {
-    color: #fff;
+    color: var(--coulBlanc);
     background-position: 100%;
-    border: 3px solid #fff;
-}
-
-/* Mediaqueries contact */
-@media screen and (max-width: 1300px) {
-    .section-contact h2 {
-        padding: 70px 0 0 0;
-    }
-    .container-form {
-        padding-left: 0;
-    }
-    .form-groupe:nth-child(4) {
-        justify-content: center;
-    }
+    border: 3px solid var(--coulBlanc);
 }
 
 /* Animation contact */
@@ -981,7 +968,7 @@ textarea:focus {
 .form-groupe.animation label {
     top: 0px;
     transform: translateY(-100%);
-    color: #8b97d7;
+    color: var(--bleuMain);
 }
 /* ---------------- Fin Contact ---------------- */
 
@@ -989,13 +976,9 @@ textarea:focus {
 footer {
     width: 100%;
     text-align: center;
-    padding-top: 100px;
-    padding-left: 300px;
-}
-@media screen and (max-width: 1300px) {
-    footer{
-        padding-left: 0;
-    }
+    /* padding-top: 100px; */
+    margin-top: 65px;
+    background-color: var(--bleuMain);
 }
 /* ---------------- Fin Footer ----------------- */
 
@@ -1220,6 +1203,9 @@ footer {
     }
     .barre-verticale {
         height: 1000px;
+    }
+    .form-groupe:nth-child(4) {
+        justify-content: flex-start;
     }
 }
 
