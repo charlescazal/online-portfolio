@@ -9,7 +9,7 @@ html {
 }
 body {
     font-family: 'Poppins', sans-serif;
-    background: var(--blancCasse);
+    background: var(--bg-color);
     overflow-x: hidden;
 }
 section {
@@ -23,17 +23,57 @@ a {
 }
 /* Variables */
 :root {
+/* bleu */
     --bleuMain: #5fbfed;
     --bleuClair: #83cdfc;
     --bleuFonce: #328ebd;
+/* rouge */
     --rougeMain: #e3051d;
     --rougeClair: #ff4f60;
     --rougeFonce: #bd060f;
-    --coulNoir: #000;
-    --coulBlanc: #fff;
-    --coulGris: #333;
+/* gris */
+    --coulBlancCasse: #f1f1f1;
     --coulGrisClair: #aaa;
-    --blancCasse: #f1f1f1;
+    --coulGrisFonce: #555;
+    --coulGrisProfond: #222;
+}
+[data-theme="light"]{
+/* general */
+    --bg-color: var(--coulBlancCasse);
+    --text-color: var(--coulGrisProfond);
+/* dégradés */
+    --degrade1: linear-gradient(45deg, var(--bleuFonce), var(--bleuClair));
+    --degradeCameleon: linear-gradient(135deg, #98ffa6, var(--rougeMain));
+
+/* menu */
+    --fondBoutonsMenu: var(--rougeMain);
+    --fondTabs: var(--bleuClair);
+    --borderTabs: var(--bleuFonce);
+/* portfolio */
+    --fondBox: var(--bg-color);
+/* technos */
+    --fondTechno: var(var(--bg-color));
+    --fondPuces: var(--bleuMain);
+/* skill */
+    --fondSkill: var(--bleuFonce);
+}
+[data-theme="dark"]{
+    --bg-color: var(--coulGrisProfond);
+    --text-color: var(--coulBlancCasse);
+/* dégradés */
+    --degrade1: linear-gradient(45deg, var(--coulGrisFonce), var(--coulGrisClair));
+    --degradeCameleon: linear-gradient(135deg, #dcffe1, #e6949c);
+/* menu */
+    --fondBoutonsMenu: var(--coulGrisProfond);
+    --fondTabs: var(--coulGrisClair);
+    --borderTabs: var(--coulGrisFonce);
+/* portfolio */
+    --fondBox: var(--coulGrisClair);
+/* technos */
+    --fondTechno: var(--text-color);
+    --fondPuces: var(--coulGrisClair);
+/* skill */
+    --fondSkill: var(--coulGrisFonce);
 }
 .flexcenter {
     display: flex;
@@ -86,6 +126,7 @@ a {
     display: flex;
     flex-direction: column;
     padding-top: 3vh;
+    color: var(--text-color);
 }
 svg {
     color: var(--bleuMain);
@@ -97,8 +138,9 @@ svg {
     text-align: center;
 }
 .bienvenue h1 {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     font-family: 'Bebas Neue', sans-serif;
+    font-weight: 500;
 }
 #txt-animation {
     min-height: 70px;
@@ -126,8 +168,8 @@ svg {
     max-width: 280px;
     height: 50px;
     text-decoration: none;
-    background: var(--coulNoir);
-    color: var(--blancCasse);
+    background: var(--text-color);
+    color: var(--bg-color);
     margin: 10px 0 0 0;
     border-radius: 2px;
     font-size: 1.1rem;
@@ -142,8 +184,8 @@ svg {
 }
 .btn-acc2 {
     background: transparent;
-    border: 2px solid var(--coulNoir);
-    color: var(--coulNoir);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
     font-weight: 700;
 }
 .medias {
@@ -156,7 +198,7 @@ svg {
 .media {
     width: 60px;
     height: 60px;
-    background: var(--coulGris);
+    background: var(--text-color);
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
@@ -167,20 +209,20 @@ svg {
 }
 .media2 {
     background: transparent;
-    border: 2px solid var(--coulGris);
+    border: 2px solid var(--text-color);
 }
 .media3 {
     margin-right: 0;
 }
 .media i {
     text-decoration: none;
-    color: white;
+    color: var(--bg-color);
 }
 .media2 i {
-    color: #333;
+    color: var(--text-color);
 }
 .media2:hover i {
-    color: var(--coulBlanc);
+    color: var(--bg-color);
 }
 /* Bouton de bas de page */
 .scroll-container {
@@ -188,12 +230,10 @@ svg {
     width: 100%;
     height: 40px;
     max-height: 10vh;
-    /* position: relative;
-    bottom: 0; */
     margin-top: 10vw;
 }
 .scroll {
-    border: 2px solid var(--coulGris);
+    border: 2px solid var(--text-color);
     border-radius: 30px;
     bottom: 0;
     font-size: 20px;
@@ -206,7 +246,7 @@ svg {
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.6);
     transform: translateY(0);
     animation: float 6s ease-in-out infinite;
-    color: var(--coulGris);
+    color: var(--text-color);
 }
 @keyframes float {
     0% {
@@ -234,7 +274,7 @@ svg {
     top: 12px;
     right: 10px;
     z-index: 10;
-    background: var(--coulGris);
+    background: var(--text-color);
 }
 .btn-menu:hover{
     border: 2px solid var(--rougeMain);
@@ -257,7 +297,7 @@ svg {
     width: 100%;
     height: 3px;
     border-radius: 5px;
-    background: var(--blancCasse);
+    background: var(--bg-color);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -267,7 +307,7 @@ svg {
     content: '';
     position: absolute;
     bottom: 10px;
-    background: var(--blancCasse);
+    background: var(--bg-color);
     width: 100%;
     height: 3px;
     border-radius: 5px;
@@ -276,7 +316,7 @@ svg {
     content: '';
     position: absolute;
     top: 10px;
-    background: var(--blancCasse);
+    background: var(--bg-color);
     width: 100%;
     height: 3px;
     border-radius: 5px;
@@ -284,6 +324,7 @@ svg {
 .cont-ligne.active .ligne-unique::after {
     top: 0;
     transform: rotate(45deg);
+    background: var(--coulBlancCasse);
     transition: top 300ms ease, transform 300ms 300ms ease;
 } 
 .cont-ligne.active .ligne-unique {
@@ -291,6 +332,7 @@ svg {
 }
 .cont-ligne.active .ligne-unique::before {
     bottom: 0;
+    background: var(--coulBlancCasse);
     transform: rotate(-45deg);
     transition: bottom 300ms ease, transform 300ms 300ms ease;
 }
@@ -300,11 +342,11 @@ svg {
 /* Menu horizontal */
 header {
     position: fixed;
-    background-color: var(--blancCasse);
+    background-color: var(--bg-color);
     border-radius: 6px;
     box-shadow: 0 2px 92px 0 rgba(0 0 0 / 27%);
     z-index: 5;
-    margin: 10px;
+    margin: 10px 9px;
     width: 95%;
     top: -100px;
     transition: .2s all ease-in-out;
@@ -314,10 +356,12 @@ header nav {
     align-items: center;
     justify-content: space-between;
     height: 50px;
+    background-color: var(--coulBlancCasse);
+    border-radius: 6px;
 }
 header nav .home {
-    background-color: var(--rougeMain);
-    color: var(--blancCasse);
+    background-color: var(--fondBoutonsMenu);
+    color: var(--coulBlancCasse);
     font-size: 1.2rem;
     justify-content: center;
     align-self: stretch;
@@ -325,14 +369,13 @@ header nav .home {
     display: flex;
     align-items: center;
     border-radius: 6px 0 0 6px;
-    border-right: 1px solid var(--blancCasse)
 }
 header nav .tabs {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--bleuClair);
+    background-color: var(--fondTabs);
     border-radius: 8px;
     margin-top: 50px;
     box-shadow: 0 2px 92px 0 rgba(0 0 0 / 27%);
@@ -343,11 +386,10 @@ header nav .tabs.active {
     top: 10px;
     visibility: visible;
     opacity: 1;
-    backdrop-filter: blur(5px) !important;
 }
 header nav .tabs li {
     text-align: center;
-    border-bottom: .1rem solid var(--bleuFonce);
+    border-bottom: .1rem solid var(--borderTabs);
     cursor: pointer;
 }
 header nav .tabs li:last-child {
@@ -356,7 +398,7 @@ header nav .tabs li:last-child {
 header nav .tabs li a {
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--blancCasse);
+    color: var(--bg-color);
     text-transform: uppercase;
     padding: 0 1rem;
     line-height: 45px;
@@ -377,37 +419,34 @@ header nav .hire-me {
     padding: 1px 6px;
     line-height: 35px;
     border: none;
-    /* background-color: var(--rougeMain); */
     transition: all .3s ease;
     cursor: pointer;
 }
+
 header nav .hire-me .btn {
-    color: var(--coulNoir);
+    color: var(--coulGrisProfond);
 }
 header nav .hire-me .btn i {
     width: 27px;
     height: 27px;
     border-radius: 50%;
     text-align: center;
-    background-color: var(--rougeMain);
-    color: var(--blancCasse);
+    background-color: var(--fondBoutonsMenu);
+    color: var(--coulBlancCasse);
     font-size: 1rem;
     line-height: 27px;
     margin-left: 5px;
 }
 header nav .toggle-btn {
-    font-size: 2rem;
-    color: var(--blancCasse);
+    font-size: 2rem;    
+    background-color: var(--fondBoutonsMenu);
     width: 50px;
     height: 50px;
-    border-left: .1rem solid var(--borderColor);
     align-self: stretch;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-left: 1px solid white;
-    background-color: var(--rougeMain);
     border-radius: 0 6px 6px 0;
 }
 header nav .toggle-btn i {
@@ -421,10 +460,10 @@ header nav .toggle-btn i {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    border-top: 1px dashed var(--coulGris);
-    border-bottom: 1px dashed var(--coulGris);
+    border-top: 1px dashed var(--text-color);
+    border-bottom: 1px dashed var(--text-color);
     color: #e7e7e7;
-    background-image: linear-gradient(45deg, var(--bleuFonce), var(--bleuClair));
+    background-image: var(--degrade1);
     display: flex;
 }
 .container-presentation {
@@ -433,7 +472,6 @@ header nav .toggle-btn i {
     flex-shrink: 0;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: space-evenly; */
 }
 .titre-pres {
     font-family: 'Bebas Neue', sans-serif;
@@ -446,7 +484,6 @@ header nav .toggle-btn i {
     width: 80%;
     flex-shrink: 1;
     margin-bottom: 10px;
-    /* padding: 20px 0; */
 }
 .pres-gauche h3 {
     text-align: center;
@@ -472,7 +509,6 @@ header nav .toggle-btn i {
     list-style-type: none;
 }
 .chiffre-style {
-    /* font-family: 'Abril Fatface', sans-serif; */
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
 }
@@ -482,7 +518,7 @@ header nav .toggle-btn i {
 }
 .textgradient {
     background-color: #f3f0c0;
-    background-image: linear-gradient(135deg, #98ffa6, var(--rougeMain));
+    background-image: var(--degradeCameleon);
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -501,6 +537,7 @@ header nav .toggle-btn i {
     font-size: 4.5rem;
     padding: 30px 0 10px 0;
     margin: 0;
+    color: var(--text-color);
 }
 .portfolio .filter {
     display: flex;
@@ -531,11 +568,10 @@ header nav .toggle-btn i {
 }
 .cont-portfolio .box {
     border-radius: .6rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
     display: none;
     overflow: hidden;
-    background-color: var(--blancCasse);
-    color: var(--coulGris);
+    background-color: var(--fondBox);
     margin: 1rem;
 }
 .cont-portfolio .box.active {
@@ -564,6 +600,7 @@ header nav .toggle-btn i {
 }
 .box .details h4 {
     padding: 0 .6rem 0;
+    color: var(--text-color);
     font-size: 1.4rem;
 }
 .box .details p {
@@ -577,9 +614,9 @@ header nav .toggle-btn i {
     height: 2.5rem;
     line-height: 2.5rem;
     text-align: center;
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
-    border: 1px solid #333;
+    border: 1px solid var(--text-color);
     border-radius: 3px;
     cursor: pointer;
     position: relative;
@@ -607,7 +644,7 @@ header nav .toggle-btn i {
 /* ---------------- Technos ------------------ */
 .technos{
     width: 100%;
-    border-bottom: 1px dashed var(--coulGris);
+    border-bottom: 1px dashed var(--text-color);
 }
 .technos-title {
     text-align: center;
@@ -615,6 +652,7 @@ header nav .toggle-btn i {
     font-size: 2.5rem;
     padding: 10px 0 10px 0;
     margin: 0;
+    color: var(--text-color);
 }
 .technos-container {
     display: flex;
@@ -623,7 +661,7 @@ header nav .toggle-btn i {
 }
 .techno {
     padding: .5rem 1.5rem;
-    background-color: var(--blancCasse);
+    background-color: var(--fondTechno);
     border-radius: .8rem;
     margin-bottom: 3rem;
     box-shadow: 0rem 0rem 4.8rem 0rem rgba(4 6 4 / 8%);
@@ -646,6 +684,9 @@ header nav .toggle-btn i {
     font-size: .9rem;
     font-style: italic;
 }
+.swiper-pagination-bullet {
+    background: var(--fondPuces);
+}
 /* -------------- Fin Technos ---------------- */
 
 /* ------------------- Compétences -------------------- */
@@ -653,11 +694,10 @@ header nav .toggle-btn i {
     width: 100%;
     height: 100vh;
     flex-direction: column;
-    border-bottom: 1px dashed #333;
+    border-bottom: 1px dashed var(--text-color);
     background: #485563;
-    /* background-image: linear-gradient(to right, #181e24, #738394); */
-    background-image: linear-gradient(45deg, var(--bleuFonce), var(--bleuClair));
-    color: #f1f1f1;
+    background-image: var(--degrade1);
+    color: var(--bg-color);
 }
 .titre-comp {
     text-align: center;
@@ -682,7 +722,7 @@ header nav .toggle-btn i {
     width: 100%;
 }
 .skills-container .skill-block h3 {
-    color: var(--blancCasse);
+    color: var(--bg-color);
     font-size: 1.17rem;
     letter-spacing: .03rem;
 }
@@ -691,7 +731,7 @@ header nav .toggle-btn i {
     width: 100%;
     height: .33rem;
     border-radius: 3rem;
-    background-color: var(--bleuFonce);
+    background-color: var(--fondSkill);
 }
 .skills-container .skill-block .skill-title {
     position: relative;
@@ -702,7 +742,7 @@ header nav .toggle-btn i {
     position: absolute;
     font-size: 1rem;
     font-weight: 500;
-    color: var(--blancCasse);
+    color: var(--text-color);
     top:50%;
     transform: translateY(-50%);
     margin-left: -1rem;
@@ -758,7 +798,7 @@ header nav .toggle-btn i {
     padding: 2rem 0;
     font-size: 3.8rem;
     font-family: 'Bebas Neue', sans-serif;
-    color: var(--coulNoir);
+    color: var(--text-color);
 }
 .cont-exp-travail {
     position: relative;
@@ -768,7 +808,7 @@ header nav .toggle-btn i {
 .barre-verticale {
     height: calc((var(--bloc-height) + 2.5rem) * 3 + 3rem);
     width: 5px;
-    background-color: #000;
+    background-color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -781,8 +821,7 @@ header nav .toggle-btn i {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid #333;
-    background: #f1f1f1;
+    background: var(--coulBlancCasse);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -802,7 +841,6 @@ header nav .toggle-btn i {
     height: var(--bloc-height);
     margin-bottom: 2.5rem;
     cursor: pointer;
-    border: 1px solid var(--coulGris);
     position: relative;
 }
 .contenu-bloc {
@@ -810,7 +848,7 @@ header nav .toggle-btn i {
     width: 100%;
     height: 100%;
     border: 2px solid black;
-    background: white;
+    background: var(--coulBlancCasse);
     transition: transform 0.25s ease-in-out;
     transform: translate(10px, -10px);
 }
@@ -863,8 +901,8 @@ img.logo-fusee {
     width: 100%;
     height: 250px;
     background: url(img/jpg/instagramPicture.jpg) no-repeat center / cover fixed;
-    border-top: 1px dashed #333;
-    border-bottom: 1px dashed #333;
+    border-top: 1px dashed var(--text-color);
+    border-bottom: 1px dashed var(--text-color);
     flex-direction: column;
 }
 .txt-par {
@@ -882,7 +920,7 @@ img.logo-fusee {
 .section-contact h2 {
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
-    color: var(--coulNoir);
+    color: var(--text-color);
     font-size: 3rem;
     font-weight: 100;
     margin-bottom: 1.5rem;
@@ -932,7 +970,7 @@ textarea {
     outline: none;
     font-size: 1.25rem;
     transition: 0.4s all ease-out;
-    background: var(--blancCasse);
+    background: var(--bg-color);
 }
 textarea::placeholder {
     font-size: 20px;
@@ -950,7 +988,6 @@ textarea:focus {
     width: auto;
     padding: 15px 60px;
     border: 3px solid rgb(144,144,144);
-    border-radius: 999px;
     background-image: linear-gradient(to right, transparent 50%, rgb(65,65,65) 50%, rgb(134,134,134));
     background-size: 200%;
     font-size: 1.5rem;
@@ -958,9 +995,9 @@ textarea:focus {
     cursor: pointer;
 }
 .form-groupe .button-sub:hover {
-    color: var(--coulBlanc);
+    color: var(--bg-color);
     background-position: 100%;
-    border: 3px solid var(--coulBlanc);
+    border: 3px solid var(--bg-color);
 }
 
 /* Animation contact */
@@ -976,7 +1013,6 @@ textarea:focus {
 footer {
     width: 100%;
     text-align: center;
-    /* padding-top: 100px; */
     margin-top: 65px;
     background-color: var(--bleuMain);
 }
@@ -986,7 +1022,7 @@ footer {
 .preloader {
     position: fixed;
     inset: 0;
-    background-color: var(--blancCasse);
+    background-color: var(--bg-color);
     width: 100%;
     height: 100vh;
     z-index: 100000;
@@ -1010,14 +1046,14 @@ footer {
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    background-color: var(--blancCasse);
+    background-color: var(--bg-color);
     overflow: hidden;
     z-index: 1;
 }
 .spinner .img-container {
     width: 100px;
     height: 100px;
-    background-color: (var(--rougeMain));
+    background-color: var(--rougeMain);
     display: flex;
     border-radius: 50%;
     z-index: 2;

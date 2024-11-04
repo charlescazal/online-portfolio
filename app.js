@@ -1,7 +1,6 @@
 const btnMenu = document.querySelector('.btn-menu'),
     ligne = document.querySelector('.cont-ligne'),
     menu = document.querySelector('header'),
-    home = document.querySelector('.home'),
     cvdownload = document.querySelector('#cvdownload'),
     tabs = document.querySelector('.tabs'),
     allItemNav = document.querySelectorAll('.tabs li'),
@@ -29,12 +28,6 @@ btnMenu.addEventListener('click', () => {
     }
 });
 // Clic sur un élément de menu
-home.addEventListener('click', () => {
-    menu.classList.toggle('menu-visible');
-    ligne.classList.toggle('active');
-    tabs.classList.toggle('active');
-    btnMenu.classList.toggle('ouvert');
-});
 cvdownload.addEventListener('click', () => {
     menu.classList.toggle('menu-visible');
     ligne.classList.toggle('active');
@@ -50,6 +43,7 @@ allItemNav.forEach(item => {
     })
 });
 
+
 // Loader au chargement du site
 window.addEventListener('load', () => {
     const fadeOutEffect = setInterval(() => {
@@ -57,6 +51,60 @@ window.addEventListener('load', () => {
         clearInterval(fadeOutEffect);
     }, 1000);
 });
+
+// LIGHT/DARK MODE
+
+// Définit le thème : localStorage > réglage système > light par défaut
+function calculerTheme({ themeLocalStorage, reglageSystemeDark }) {
+    if (themeLocalStorage !== null) {
+        return themeLocalStorage;
+    }
+    if (reglageSystemeDark.matches) {
+        return "dark";
+    }
+    return "light";
+}
+
+// Change le texte et l'apparence du bouton de réglage du thème
+function updateThemeButton({ buttonEl, isDark }) {
+    const nouvTexte = isDark ? "Quitter le thème sombre" : "Passer en thème sombre";
+    buttonEl.setAttribute("alt", nouvTexte);
+}
+
+// Change le tag de la balise HTML
+function updateHtmlTag({ theme }) {
+    document.querySelector("html").setAttribute("data-theme", theme);
+}
+
+// Au chargement de la page :
+//     1- Obtenir ce dont on a besoin du DOM et des réglages système
+const themeButton = document.querySelector("[data-theme-toggle]");
+const themeLocalStorage = localStorage.getItem("theme");
+const reglageSystemeDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+//     2- Déterminer le réglage actuel
+let themeActuel = calculerTheme({ themeLocalStorage, reglageSystemeDark });
+
+//     3- Mettre à jour le réglage de thème et le bouton
+updateThemeButton({ buttonEl: themeButton, isDark: reglageSystemeDark === "dark" });
+updateHtmlTag({ theme: themeActuel });
+
+//     4- Ajouter un eventListener pour toggle le thème
+themeButton.addEventListener("click", () => {
+    const nouvTheme = themeActuel === "dark" ? "light" : "dark";
+
+    localStorage.setItem("theme", nouvTheme);
+    updateThemeButton({ buttonEl: themeButton, isDark: nouvTheme === "dark"});
+    updateHtmlTag({ theme: nouvTheme });
+
+    themeActuel = nouvTheme;
+});
+
+
+
+
+
+
 
 
 // Animation typewriter accueil
