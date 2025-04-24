@@ -56,6 +56,10 @@ a {
     --fondPuces: var(--bleuMain);
 /* skill */
     --fondSkill: var(--bleuFonce);
+/* contact */
+    --coulContactInput: var(--coulGrisFonce);
+/* footer */
+    --footer: var(--bleuMain);
 }
 [data-theme="dark"]{
     --bg-color: var(--coulGrisProfond);
@@ -74,6 +78,10 @@ a {
     --fondPuces: var(--coulGrisClair);
 /* skill */
     --fondSkill: var(--coulGrisFonce);
+/* contact */
+    --coulContactInput: var(--coulGrisClair);
+/* footer */
+    --footer: var(--coulGrisFonce);
 }
 .flexcenter {
     display: flex;
@@ -86,6 +94,10 @@ a {
     height: 100vh;
     width: 100vw;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .accueil-container{
     height: 70vh;
@@ -143,11 +155,12 @@ svg {
     font-weight: 500;
 }
 #txt-animation {
-    min-height: 70px;
+    min-height: fit-content;
+    padding: 1vh 4vw;
+    flex-direction: column;
 }
 .txt-animation {
     font-size: 1rem;
-    padding: 1vh 4vw;
     text-align: center;
 }
 /* Boutons liens */
@@ -272,7 +285,7 @@ svg {
     border-radius: 50%;
     position: fixed;
     top: 12px;
-    right: 10px;
+    right: 3%;
     z-index: 10;
     background: var(--text-color);
 }
@@ -346,7 +359,7 @@ header {
     border-radius: 6px;
     box-shadow: 0 2px 92px 0 rgba(0 0 0 / 27%);
     z-index: 5;
-    margin: 10px 9px;
+    margin: 10px calc(5% / 2);
     width: 95%;
     top: -100px;
     transition: .2s all ease-in-out;
@@ -417,7 +430,7 @@ header nav .hire-me {
     font-size: 1rem;
     font-family: inherit;
     padding: 1px 6px;
-    line-height: 35px;
+    line-height: 2.5rem;
     border: none;
     transition: all .3s ease;
     cursor: pointer;
@@ -441,7 +454,7 @@ header nav .toggle-btn {
     font-size: 2rem;    
     background-color: var(--fondBoutonsMenu);
     width: 50px;
-    height: 50px;
+    /* height: 50px; */
     align-self: stretch;
     display: flex;
     align-items: center;
@@ -458,13 +471,14 @@ header nav .toggle-btn i {
 /* --------------- Présentation ---------------- */
 .presentation {
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     position: relative;
     border-top: 1px dashed var(--text-color);
     border-bottom: 1px dashed var(--text-color);
     color: #e7e7e7;
     background-image: var(--degrade1);
     display: flex;
+    flex-direction: column;
 }
 .container-presentation {
     width: 100%;
@@ -672,10 +686,11 @@ header nav .toggle-btn i {
     height: 220px;
 }
 .techno-img-container {
-    height: 80%;
+    height: 150px;
+    width: 150px;
 }
 .techno .techno-img {
-    width: 60%;
+    width: 100%;
 }
 .techno-text-container {
     height: 20%;
@@ -742,7 +757,7 @@ header nav .toggle-btn i {
     position: absolute;
     font-size: 1rem;
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--bg-color);
     top:50%;
     transform: translateY(-50%);
     margin-left: -1rem;
@@ -822,6 +837,7 @@ header nav .toggle-btn i {
     height: 50px;
     border-radius: 50%;
     background: var(--coulBlancCasse);
+    border: 1px solid var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -921,13 +937,9 @@ img.logo-fusee {
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     color: var(--text-color);
-    font-size: 3rem;
-    font-weight: 100;
-    margin-bottom: 1.5rem;
-    padding: 10px 0 0 0;
-}
-.section-contact h2 strong {
     font-weight: 900;
+    font-size: 4.5rem;
+    padding: 1.5rem 0;
 }
 .container-form {
     margin: 0 auto;
@@ -936,7 +948,7 @@ img.logo-fusee {
 .form-groupe {
     position: relative;
     display: flex;
-    margin-bottom: 2.8rem;
+    margin-bottom: 3.8rem;
 }
 .form-groupe label {
     position: absolute;
@@ -955,7 +967,7 @@ img.logo-fusee {
     outline: none;
     background: none;
     border-bottom: 3px solid var(--coulGrisClair);
-    color: #666;
+    color: var(--coulContactInput);
     font-size: 1.25rem;
     transition: 0.4s ease-out;
 }
@@ -973,7 +985,7 @@ textarea {
     background: var(--bg-color);
 }
 textarea::placeholder {
-    font-size: 20px;
+    font-size: 1.25rem;
     opacity: 0.5;
 }
 textarea:focus {
@@ -999,7 +1011,6 @@ textarea:focus {
     background-position: 100%;
     border: 3px solid var(--bg-color);
 }
-
 /* Animation contact */
 .form-groupe:focus-within label,
 .form-groupe.animation label {
@@ -1013,8 +1024,10 @@ textarea:focus {
 footer {
     width: 100%;
     text-align: center;
-    margin-top: 65px;
-    background-color: var(--bleuMain);
+    height: 1.5rem;
+    background-color: var(--footer);
+    font-size: .8rem;
+    color: var(--coulBlancCasse);
 }
 /* ---------------- Fin Footer ----------------- */
 
@@ -1113,6 +1126,9 @@ footer {
         margin-top: 0;
         margin-bottom: 2vh;
     }
+    .container-presentation {
+        padding: 4rem 0;
+    }
     .scroll-container {
         margin-top: 70px;
     }
@@ -1120,7 +1136,7 @@ footer {
         margin-top: 2vh;
     }
 }
-/* big smartphones */
+/* various portrait */
 @media screen and (min-width: 412px) {
     .bienvenue h1 {
         font-size: 2.4rem;
@@ -1128,8 +1144,13 @@ footer {
     .txt-animation {
         font-size: 1.2rem;
     }
+    .spinner {
+        width: 125px;
+        height: 125px;
+    }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 480px) {
+    /* accueil */
     .accueil-container {
         max-height: 31.25rem;
     }
@@ -1144,92 +1165,532 @@ footer {
         max-width: 21.875rem;
         max-height: 21.875rem;
     }
+    .accueil-texte {
+        margin-bottom: 2rem;
+    }
+    #txt-animation {
+        min-height: 80px;
+    }
     .acc-btn-container {
         margin-top: 1vh;
         margin-bottom: 1vh;
     }
     /* presentation */
+    .pres-gauche p {
+        font-size: 1.1rem;
+    }
     .chiffre-style {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .txt-liste {
+        font-size: 1.3rem;
     }
     /* portfolio */
     .titre-port {
         padding: 50px 0;
     }
-    .cont-img-port {
-        height: 13.75rem;
+    /* technos */
+    .technos-title {
+        font-size: 3.5rem;
     }
-    .section-parallax {
-        flex-direction: row;
+    .techno .techno-img {
+        max-width: 150px;
+        max-height: 150px;
     }
-    .txt-par {
-        font-size: 1.4rem;
-        margin: 0 1.56rem;
+    /* competences */
+    .titre-comp {
+        font-size: 4.5rem;
     }
-    .bloc {
-        height: 250px;
+    .skills-legende {
+        font-size: .8rem;
+    }
+    .skills-container {
+        gap: 1.8rem;
+    }
+    /* experiences */
+    .travail-exp {
+        --bloc-height: 15.5rem;
     }
     .txt-section {
         font-size: 1rem;
     }
-}
-/* portrait tablets */
-@media screen and (min-width: 760px) and (orientation: portrait) {}
-/* landscape tablets */
-@media screen and (min-width: 1024px) and (orientation: landscape) {}
-/* lo-rez desktop */
-@media screen and (min-width: 801px) {
-    /* presentation: max 1100px */
-    .container-presentation {
-        flex-direction: row;
-    }
-    .pres-gauche {
-        width: 600px;
-        flex-shrink: 0;
-        margin-bottom: 50px;
-        padding-left: 120px;
-        padding-top: 20px;
-    }
-    .pres-gauche h3 {
-        font-size: 1.6rem;
-        letter-spacing: 2px;
-    }
-    .pres-gauche p {
-        font-size: 16px;
-    }
-    .pres-droite {
-        width: 600px;
-        flex-shrink: 0;
-    }
-    .liste-presentation {
-        padding: 10px 0 50px 110px;
-    }
-    .txt-liste {
-        font-size: 1.7rem;
-    }
-    .titre-port {
-        margin: 50px 0 70px;
-    }
-    .skills-container {
-        width: 700px;
+    /* parallax */
+    .section-parallax {
+        height: 400px;
+        flex-direction: column;
     }
     .txt-par {
-        font-size: 1.6rem;
-        margin: 0 ;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
     }
-    .barre-verticale {
-        height: 1200px;
-        margin-left: 0;
+    /* spinner */
+    .spinner {
+        width: 135px; 
+        height: 135px;
+    }
+}
+@media screen and (min-width: 600px) {
+    /* accueil */
+    .accueil-container {
+        max-height: fit-content;
+    }
+    .bienvenue h1 {
+        font-size: 3.2rem;
+    }
+    .txt-animation {
+        font-size: 1.4rem;
+    }
+    .acc-btns {
+        min-height: 230px;
+    }
+    .acc-btn-container {
+        flex-direction: row;
+        gap: 1.2rem;
+    }
+    /* presentation */
+    .titre-pres {
+        font-size: 5.8rem;
+    }
+    .pres-gauche,
+    .pres-droite {
+        width: 520px;
+    }
+    /* portfolio */
+    .titre-port {
+        font-size: 5.8rem;
+    }
+    .portfolio .filter li {
+        font-size: 1.2rem;
+    }
+    /* technos */
+    .technos-title {
+        font-size: 4.8rem;
+    }
+    .techno .techno-name {
+        font-size: 1.2rem;
+    }
+    /* compétences */
+    .titre-comp {
+        font-size: 5.8rem;
+    }
+    .skills-legende {
+        font-size: .9rem;
+    }
+    /* expériences */
+    .travail-exp {
+        --bloc-height: 13rem;
+    }
+    .titre-travail-exp {
+        font-size: 5.8rem;
+    }
+    /* footer */
+    footer {
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+    /* spinner */
+    .spinner {
+        width: 160px;
+        height: 160px;
+    }
+}
+/* portrait tablets */
+@media screen and (min-width: 800px) and (orientation: portrait) {
+    .accueil {
+        justify-content: space-between;
+    }
+    .accueil-container {
+        min-height: 55rem;
+    }
+    .accueil-texte {
+        height: 22rem;
+    }
+    #bonjour {
+        margin-bottom: 2rem;
+    }
+    svg {
+        width: 50vw;
+    }
+    .bienvenue h1 {
+        font-size: 4rem;
+    }
+    .txt-animation {
+        font-size: 1.8rem;
+    }
+    .acc-btn-container {
+        gap: 3rem;
+    }
+    /* menu */
+    header nav .hire-me {
+        font-size: 1.4rem;
+    }
+    header nav .hire-me .btn i {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.5rem;
+    }
+    header nav .home {
+        font-size: 1.5rem;
+    }
+    /* presentation */
+    .titre-pres {
+        font-size: 6.5rem;
+    }
+    .pres-gauche, .pres-droite {
+        width: 600px;
+    }
+    .pres-gauche h3 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .pres-gauche hr {
+        width: 10rem;
+    }
+    .pres-gauche p {
+        font-size: 1.5rem;
+    }
+    .pres-gauche p:first-of-type {
+        margin-top: 2rem;
+    }
+    .pres-gauche p:last-of-type {
+        margin-bottom: 2rem;
+    }
+    .chiffre-style {
+        font-size: 2rem;
+    }
+    .txt-liste {
+        font-size: 2rem;
+    }
+    /* portfolio */
+    .titre-port {
+        font-size: 6.5rem;
+    }
+    .portfolio .filter {
+        line-height: 2rem;
+        max-width: 50%;
+        padding-bottom: 2rem;
+    }
+    .portfolio .filter li {
+        font-size: 1.6rem;
+    }
+    .box .details h4 {
+        font-size: 2rem;
+    }
+    .box .details p {
+        font-size: 1.2rem;
+    }
+    .btn-projets {
+        font-size: 1.2 rem;
+    }
+    /* technos */
+    .technos-title {
+        font-size: 6.5rem;
+    }
+    .techno .techno-name {
+        font-size: 1.4rem;
+    }
+    /* competences */
+    .titre-comp {
+        font-size: 6.5rem;
+    }
+    .skills-legende {
+        font-size: 1.1rem;
+    }
+    .skills-container {
+        gap: 2.5rem;
+    }
+    .skills-container .skill-block h3 {
+        font-size: 2.2rem;
+    }
+    .skills-container .skill-block .skill-bar {
+        height: .66rem;
+    }
+    .skills-container .skill-block .skill-title{
+        margin-bottom: 0;
+    }
+    .skills-container .skill-block .skill-title span {
+        font-size: 1.3rem;
+    }
+    .skills-container .skill-block .skill-title span::before {
+        width: 3.1rem;
+        height: 1.7rem;
+        top:0.1rem;
+        /* left: -.195rem; */
+        left: -.3rem;
+    }
+    .skills-container .skill-block .skill-title span::after {
+        top: 1.7rem;
+    }
+    /* experiences */
+    .travail-exp {
+        --bloc-height: 15rem;
+        padding: 0;
+    }
+    .titre-travail-exp {
+        font-size: 6.5rem;
+    }
+    .boule-ico {
+        border: 3px solid var(--text-color);
+        width: 60px;
+        height: 60px;
+    }
+    .boule-ico i {
+        font-size: 2rem;
+    }
+    .boule-ico img {
+        width: 35px;
+    }
+    img.logo-udemy {
+        height: 40px;
     }
     .flex-cont-bloc-exp {
-        margin-right: 0;
+        margin-left: 10px;
+        margin-right: 40px;
+        height:100%;
     }
-    .bloc{
+    .titre-section-bloc {
+        font-size: 3rem;
+        padding-bottom: 0;
+    }
+    .details-exp {
+        font-size: 1.4rem;
+    }
+    .contenu-bloc hr {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .txt-section {
+        font-size: 1.15rem;
+    }
+    /* parallax */
+    .section-parallax {
+        height: 500px;
+        flex-direction: column;
+    }
+    .txt-par {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+    }
+    /* contact */
+    .section-contact {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .section-contact h2 {
+        font-size: 6.5rem;
+        padding: 40px 0;
+    }
+    .container-form {
+        margin: auto;
+    }
+    .form-groupe label {
+        font-size: 2rem;
+    }
+    .form-groupe input {
+        font-size: 2rem;
+    }
+    textarea {
+        height: 18rem;
+        font-size: 2rem;
+    }
+    textarea::placeholder {
+        font-size: 2rem;
+    }
+    .form-groupe .button-sub {
+        font-size: 2.2rem;
+    }
+    /* footer */
+    footer {
+        height: 4rem;
+        font-size: 1.2rem;
+    }
+    /* spinner */
+    .spinner {
+        width: 200px;
         height: 200px;
     }
 }
-/* big desktop 1920x1200 */
+/* landscape 800 -> 1024 */
+@media screen and (min-width: 800px) and (orientation: landscape) {
+    /* accueil */
+    .accueil {
+        justify-content: space-between;
+    }
+    .accueil-container {
+        max-height: 25rem;
+    }
+    .accueil-portrait .img-container {
+        height: 20vw;
+        width: 20vw;
+        margin-right: 50vw;
+        margin-top: 10vw;
+    }
+    .accueil-portrait .img-container img {
+        width: 15rem;
+    }
+    svg {
+        margin-top: -6rem;
+    }
+    .accueil-texte {
+        height: 13rem;
+    }
+    .bienvenue h1 {
+        font-size: 2.8rem;
+    }
+    #txt-animation {
+        min-height: auto;
+    }
+    .txt-animation {
+        font-size: 1.2rem;
+    }
+    .acc-btns {
+        min-height: auto;
+    }
+    .medias {
+        margin-top: 2vw;
+    }
+/* pres */
+    .presentation {
+        justify-content: space-evenly;
+    }
+    .container-presentation {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .pres-gauche {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .pres-gauche h3 {
+        font-size: 1rem;
+    }
+    .pres-gauche p {
+        font-size: .9rem;
+        width: 90%;
+        max-width: 500px;
+    }
+    .pres-droite {
+        width: 35%;
+        justify-content: center;
+    }
+    .chiffre-style {
+        font-size: 1.2rem;
+    }
+    .txt-liste {
+        font-size: 1rem;
+    }
+/* portfolio */
+    .titre-port {
+        padding-bottom: 0;
+        font-size: 5.8rem;
+    }
+    .portfolio .filter li {
+        font-size: 1rem;
+    }
+/* compétences */
+    .skills-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 5rem;
+    }
+    .skills-container .skill-block {
+        width: 48%;
+    }
+/* exp */
+    .flex-cont-bloc-exp {
+        height: auto;
+    }
+/* parallax */
+    .section-parallax {
+    flex-direction: row;
+    }
+    .txt-par {
+    text-align: center;
+    }
+/* contact */
+    .section-contact {
+        height: 100vh;
+    }
+    .section-contact h2 {
+        font-size: 5.8rem;
+        padding-bottom: 0;
+    }
+    .form-groupe {
+        margin-bottom: 2.2rem;
+    }
+    .form-groupe label {
+        font-size: 1rem;
+    }
+    .form-groupe input {
+        font-size: 1rem;
+    }
+    textarea {
+        height: 10rem;
+        font-size: 1rem;
+    }
+    textarea::placeholder {
+        font-size: 1rem;
+    }
+    .form-groupe .button-sub {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* landscape 1024 -> 1281 - 1024*768 */
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+    /* accueil */
+    /* portrait un peu plus à gauche */
+    /* descendre bienvenue + boutons */
+
+    /* pres deux colonnes */
+    
+    /* compétences deux colonnes ? */
+    
+    /* expériences moins de marge en bas */
+    
+    /* parallax sur même ligne 3 colonnes */
+    
+    /* footer */
+    footer {
+        margin-top: 30px;
+    }
+    /* spinner */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* landscape > 1281 (ex: 1920x1200) */
 @media screen and (min-width: 1281px) {
+    /* A faire :  
+    accueil : 
+    pres : 
+    port/technos : 
+    compétences : 
+    exp : 
+    parallax : 
+    contact : 
+    */
     .container-presentation {
         margin: 50px 0 130px 0;
     }
@@ -1244,99 +1705,3 @@ footer {
         justify-content: flex-start;
     }
 }
-
-
-
-/* OLD RESPONSIVE MEDIA QUERIES */
-
-/*
-@media screen and (min-height: 0em) {
-    color: black;
-}
-
-
-
-@media screen and (min-width: 575px) {
-    .acc-btn-container {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    .btn-acc {
-        width: 250px;
-    }
-    .medias {
-        margin-top: 3vh;
-    }
-}
-@media screen and (min-width: 600px) {
-    .accueil-container,
-    .acc-btns {
-        max-width: 600px;
-        margin: auto;
-    }
-    .accueil-portrait {
-        margin-top: 5vh;
-    }
-    .accueil-portrait .img-container {
-        max-width: 300px;
-        max-height: 300px;
-    }
-    .accueil-portrait .img-container img {
-        max-width: 420px;
-    }
-    .accueil-texte {
-        height: 30vh;
-    }
-    #bonjour svg {
-        max-width: 240px;
-    }
-    .bienvenue h1 {
-        font-size: 2.3rem;
-    }
-    .txt-animation {
-        font-size: 1.35rem;
-        min-height: 85px;
-    }
-    .acc-btn-container {
-        justify-content: center;
-    }
-    .btn-acc2 {
-        margin-left: 30px;
-    }
-}
-@media screen and (min-width: 800px) {
-    .accueil-container {
-        flex-direction: row;
-        max-width: 800px;
-        width: 95vw;
-        height: 60vh;
-    }
-    .accueil-portrait .img-container {
-        margin: 0;
-    }
-    .img-container img {
-        max-width: none;
-    }
-    .accueil-texte {
-        margin-top: 3.5vh;
-        justify-content: center;
-    }
-    #bonjour svg {
-        margin: 0 3vw 0 auto;
-    }
-    .bienvenue h1 {
-        font-size: 2.3rem;
-    }
-    .txt-animation {
-        font-size: 1.1rem;
-    }
-
-}
-@media screen and (min-width: 1300px) {
-    .titre-pres {
-        margin: 50px 0 70px 0;
-        font-size: 4rem;
-    }
-}
-
-*/

@@ -108,7 +108,7 @@ themeButton.addEventListener("click", () => {
 
 
 // Animation typewriter accueil
-const txtAnim = document.querySelector('.txt-animation');
+const txtAnim = document.querySelector('.typewriter');
 let typewriter = new Typewriter(txtAnim, {
     loop: true,
     deleteSpeed: 20
@@ -116,20 +116,20 @@ let typewriter = new Typewriter(txtAnim, {
 typewriter
     .pauseFor(1000)
     .changeDelay(20)
-    .typeString('Je m\'appelle <strong>Charles Cazal</strong>, et je suis <br>')
-    .typeString('<strong> Développeur Full-Stack</strong>')
+    .typeString('Full-Stack')
     .pauseFor(1000)
     .deleteChars(10)
-    .typeString('<span style="color: #27ae60;"><strong> CSS</strong></span>')
+    .typeString('<span style="color: #27ae60;">CSS</span>')
     .pauseFor(1000)
     .deleteChars(3)
-    .typeString('<span style="color: #EA39FF;"><strong> PhP</strong></span>')
+    .typeString('<span style="color: #EA39FF;">PhP</span>')
     .pauseFor(1000)
     .deleteChars(3)
-    .typeString('<span style="color: midnightblue;"><strong> React</strong></span>')
+    .typeString('<span style="color: teal;">React</span>')
     .pauseFor(1000)
     .deleteChars(6)
-    .typeString('<span style="color: #ff6910;"><strong> JavaScript</strong></span>')
+    .typeString('<span style="color: #ff6910;">JavaScript</span>')
+    .pauseFor(1000)
     .start();
 
 // SECTION FORMULAIRE DE CONTACT
